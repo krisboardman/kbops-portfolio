@@ -589,6 +589,8 @@ document.getElementById('import-btn').addEventListener('click',async()=>{
 db.channel('planner_sync')
   .on('postgres_changes',{event:'*',schema:'public',table:'planner_days'},(payload)=>{
     if(payload.new && payload.new.date_key===dk(currentDate)){
+      const active=document.activeElement;
+      if(active && active.classList.contains('e-input')) return;
       Object.assign(data, payload.new.data);
       buildGrid();
       showSaveIndicator('Synced ✓','saved');
