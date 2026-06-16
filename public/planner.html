@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Day Planner</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
@@ -51,6 +52,8 @@
     transition: opacity 0.4s;
   }
   .save-indicator.saved { color: #3a9e6a; }
+  .save-indicator.syncing { color: var(--accent); }
+  .save-indicator.error { color: var(--now); }
 
   .toolbar {
     max-width: 700px; margin: 0 auto 0.75rem;
@@ -257,38 +260,62 @@ e.g.  09:00 | Morning check-in | 30
 </div>
 
 <script>
+const SUPABASE_URL='https://lgxidbxwlguskolcezqv.supabase.co';
+const SUPABASE_KEY='sb_publishable_5dLB65EO7sFTysua9SO9Zw_6OL3TZlX';
+const {createClient}=supabase;
+const db=createClient(SUPABASE_URL,SUPABASE_KEY);
+
 const START_H=6, END_H=22, SLOT_MINS=15;
 const TOTAL=((END_H-START_H)*60)/SLOT_MINS;
 const CATS=['','work','focus','personal','health','break'];
 const CAT_LABELS={'':'—',work:'Work',focus:'Focus',personal:'Personal',health:'Health',break:'Break'};
-const STORAGE_KEY='dayplanner_v1';
+const LOCAL_KEY='dayplanner_v1';
 
 let currentDate=new Date(); currentDate.setHours(0,0,0,0);
 let data={};
 let moveSrcIdx=null, fillSrcIdx=null, fillCurIdx=null;
 let saveTimer=null;
 
-// ── Persistence ──
-function loadData(){
-  try {
-    const raw=localStorage.getItem(STORAGE_KEY);
-    if(raw) data=JSON.parse(raw);
-  } catch(e){ data={}; }
+// ── Persistence (Supabase + localStorage cache) ──
+function showSaveIndicator(msg,type=''){
+  const el=document.getElementById('save-indicator');
+  el.textContent=msg; el.className='save-indicator'+(type?' '+type:'');
 }
-function saveData(){
-  try {
-    localStorage.setItem(STORAGE_KEY,JSON.stringify(data));
-    showSaveIndicator('Saved');
-  } catch(e){ showSaveIndicator('Save failed'); }
+
+async function loadDay(ds){
+  showSaveIndicator('Loading…','syncing');
+  try{const c=localStorage.getItem(LOCAL_KEY);if(c)Object.assign(data,JSON.parse(c));}catch(e){}
+  try{
+    const {data:row,error}=await db.from('planner_days').select('data').eq('date_key',ds).maybeSingle();
+    if(error)throw error;
+    if(row&&row.data)Object.assign(data,row.data);
+    try{localStorage.setItem(LOCAL_KEY,JSON.stringify(data));}catch(e){}
+    showSaveIndicator('Ready');
+  }catch(e){showSaveIndicator('Offline — using local cache','error');}
 }
+
+async function saveDay(ds){
+  const dayData={};
+  for(let i=0;i<TOTAL;i++){const k=sid(ds,i);if(data[k])dayData[k]=data[k];}
+  try{localStorage.setItem(LOCAL_KEY,JSON.stringify(data));}catch(e){}
+  try{
+    const {error}=await db.from('planner_days').upsert({date_key:ds,data:dayData,updated_at:new Date().toISOString()});
+    if(error)throw error;
+    showSaveIndicator('Saved ✓','saved');
+  }catch(e){showSaveIndicator('Saved locally (sync failed)','error');}
+}
+
 function scheduleSave(){
   clearTimeout(saveTimer);
-  saveTimer=setTimeout(saveData,400);
+  showSaveIndicator('Saving…','syncing');
+  saveTimer=setTimeout(()=>saveDay(dk(currentDate)),600);
 }
-function showSaveIndicator(msg){
-  const el=document.getElementById('save-indicator');
-  el.textContent=msg;
-  el.classList.toggle('saved', msg==='Saved');
+
+async function changeDate(d){
+  currentDate=d; currentDate.setHours(0,0,0,0);
+  updateUI();
+  await loadDay(dk(currentDate));
+  buildGrid();
 }
 
 const dk=d=>d.toISOString().slice(0,10);
@@ -488,21 +515,22 @@ function updateUI(){
 }
 
 // ── Toolbar ──
-document.getElementById('date-picker').addEventListener('change',function(){currentDate=new Date(this.value+'T00:00:00');updateUI();buildGrid();});
-document.getElementById('prev-btn').addEventListener('click',()=>{currentDate.setDate(currentDate.getDate()-1);updateUI();buildGrid();});
-document.getElementById('next-btn').addEventListener('click',()=>{currentDate.setDate(currentDate.getDate()+1);updateUI();buildGrid();});
-document.getElementById('today-btn').addEventListener('click',()=>{currentDate=new Date();currentDate.setHours(0,0,0,0);updateUI();buildGrid();});
+document.getElementById('date-picker').addEventListener('change',function(){changeDate(new Date(this.value+'T00:00:00'));});
+document.getElementById('prev-btn').addEventListener('click',()=>{const d=new Date(currentDate);d.setDate(d.getDate()-1);changeDate(d);});
+document.getElementById('next-btn').addEventListener('click',()=>{const d=new Date(currentDate);d.setDate(d.getDate()+1);changeDate(d);});
+document.getElementById('today-btn').addEventListener('click',()=>{changeDate(new Date());});
 
-document.getElementById('clear-btn').addEventListener('click',()=>{
+document.getElementById('clear-btn').addEventListener('click',async()=>{
   if(!confirm('Clear all events for this day?')) return;
   const ds=dk(currentDate);
   for(let i=0;i<TOTAL;i++) data[sid(ds,i)]={text:'',cat:'',dur:'15',gcal:false};
-  saveData(); buildGrid();
+  await saveDay(ds); buildGrid();
 });
 
-document.getElementById('clear-all-btn').addEventListener('click',()=>{
+document.getElementById('clear-all-btn').addEventListener('click',async()=>{
   if(!confirm('Erase ALL saved schedule data? This cannot be undone.')) return;
-  localStorage.removeItem(STORAGE_KEY);
+  try{localStorage.removeItem(LOCAL_KEY);}catch(e){}
+  await db.from('planner_days').delete().neq('date_key','');
   data={};
   showSaveIndicator('Cleared');
   buildGrid();
@@ -528,7 +556,7 @@ document.getElementById('copy-tpl-btn').addEventListener('click',()=>{
   });
 });
 document.getElementById('clear-paste-btn').addEventListener('click',()=>{document.getElementById('paste-input').value='';});
-document.getElementById('import-btn').addEventListener('click',()=>{
+document.getElementById('import-btn').addEventListener('click',async()=>{
   const raw=document.getElementById('paste-input').value.trim();
   if(!raw)return;
   const ds=dk(currentDate);let imported=0;
@@ -549,7 +577,7 @@ document.getElementById('import-btn').addEventListener('click',()=>{
   });
   if(imported>0){
     document.getElementById('paste-input').value='';
-    saveData(); buildGrid();
+    await saveDay(dk(currentDate)); buildGrid();
     document.getElementById('panel-body').classList.remove('open');
     document.getElementById('panel-arrow').textContent='▾ open';
   }else{
@@ -558,10 +586,9 @@ document.getElementById('import-btn').addEventListener('click',()=>{
 });
 
 // ── Init ──
-loadData();
 updateUI();
 buildGrid();
-showSaveIndicator('Ready');
+loadDay(dk(currentDate)).then(()=>buildGrid());
 </script>
 </body>
 </html>
