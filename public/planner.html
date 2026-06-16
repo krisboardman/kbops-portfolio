@@ -585,6 +585,17 @@ document.getElementById('import-btn').addEventListener('click',async()=>{
   }
 });
 
+// ── Real-time sync ──
+db.channel('planner_sync')
+  .on('postgres_changes',{event:'*',schema:'public',table:'planner_days'},(payload)=>{
+    if(payload.new && payload.new.date_key===dk(currentDate)){
+      Object.assign(data, payload.new.data);
+      buildGrid();
+      showSaveIndicator('Synced ✓','saved');
+    }
+  })
+  .subscribe();
+
 // ── Init ──
 updateUI();
 buildGrid();
