@@ -450,6 +450,11 @@ export default function PEI() {
           <p className="text-xs text-gray-500 mt-4 italic">
             Use this for the meeting; the MacQueen's PDF is still the official confirmation packet.
           </p>
+          <div className="mt-4">
+            <a href="/pei/hotels" className="inline-block bg-green-800 text-white text-sm px-5 py-2.5 rounded-lg hover:bg-green-700 transition">
+              View full hotel details & room rates →
+            </a>
+          </div>
         </div>
       </section>
 
