@@ -87,7 +87,7 @@ export default function PEI() {
               alt="Cyclists walking bikes along a boardwalk toward a PEI lighthouse"
               width={960}
               height={640}
-              className="w-full h-64 object-cover object-center rounded-xl"
+              className="w-full h-auto rounded-xl"
             />
           </div>
           <div className="grid md:grid-cols-2 gap-6">
@@ -300,7 +300,7 @@ export default function PEI() {
                 alt="Fresh PEI lobster and mussels with ocean views"
                 width={600}
                 height={400}
-                className="w-full h-56 object-cover rounded-xl"
+                className="w-full h-auto rounded-xl"
               />
             </div>
             <div className="rounded-xl overflow-hidden">
@@ -309,7 +309,7 @@ export default function PEI() {
                 alt="Charlottetown Victoria Row outdoor patio dining scene"
                 width={600}
                 height={400}
-                className="w-full h-56 object-cover rounded-xl"
+                className="w-full h-auto rounded-xl"
               />
             </div>
           </div>
@@ -363,7 +363,7 @@ export default function PEI() {
               alt="Cyclists with bikes on a boardwalk at a PEI lighthouse"
               width={960}
               height={640}
-              className="w-full h-64 object-cover object-center rounded-xl"
+              className="w-full h-auto rounded-xl"
             />
           </div>
           <div className="grid md:grid-cols-2 gap-6">
@@ -404,7 +404,7 @@ export default function PEI() {
               alt="Two cyclists riding along a road with a lighthouse and dunes"
               width={960}
               height={500}
-              className="w-full h-56 object-cover object-center rounded-xl"
+              className="w-full h-auto rounded-xl"
             />
           </div>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
@@ -617,7 +617,7 @@ function DaySection({
             alt={imageAlt}
             width={960}
             height={480}
-            className="w-full h-56 object-cover object-center rounded-xl"
+            className="w-full h-auto rounded-xl"
           />
         </div>
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
