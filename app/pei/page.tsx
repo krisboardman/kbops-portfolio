@@ -187,8 +187,6 @@ export default function PEI() {
         slideNum="06"
         title="Day 2: Shuttle to Tignish + North Cape"
         subtitle="Sunday 8/23 — get west, then optional warm-up ride"
-        image="/pei/slide06_img06.jpg"
-        imageAlt="Cyclists riding along a coastal road past a lighthouse"
         ride={['Optional North Cape loop', '~17 mi / 27.8 km', 'Mostly roads, relatively flat']}
         eat={["M.J.'s Bakery / Caboose Café", 'Local dinner in Tignish', 'Snack backup recommended']}
         see={['North Cape Wind Energy Centre', 'Tignish Cultural Centre', 'St. Simon & St. Jude Church']}
@@ -200,8 +198,6 @@ export default function PEI() {
         slideNum="07"
         title="Day 3: Tignish → Mill River"
         subtitle="Monday 8/24 — first point-to-point ride"
-        image="/pei/slide07_img06.jpg"
-        imageAlt="Cyclists walking bikes on a boardwalk toward a PEI lighthouse"
         ride={['~29 mi / 47.1 km', 'Moderate hills', 'Mostly off-road / trail']}
         eat={['Valley Pearl Oysters if timing works', 'Mill River on-site options', 'Carry lunch/snacks']}
         see={['Alberton harbor', 'North Cape Coastal scenery', 'Quiet trail towns']}
@@ -226,8 +222,6 @@ export default function PEI() {
         slideNum="09"
         title="Day 5: Miscouche → New Glasgow"
         subtitle="Wednesday 8/26 — central PEI and lobster country"
-        image="/pei/slide09_img06.jpg"
-        imageAlt="PEI lobster supper served on a plate at a restaurant"
         ride={['~38 mi / 61.3 km', 'Moderate hills', 'Trail + rolling finish']}
         eat={['New Glasgow Lobster Suppers', 'The Table — WAITLIST', 'Blue Mussel Cafe', 'Evermoore Brewing (Summerside)', 'Moth Lane Brewing (Summerside)']}
         see={['Summerside area', 'Kensington Railway Station', 'Hunter River / rolling farmland']}
@@ -252,8 +246,6 @@ export default function PEI() {
         slideNum="11"
         title="Day 7: New Glasgow → Dalvay"
         subtitle="Friday 8/28 — choose the scenic route"
-        image="/pei/slide11_img06.jpg"
-        imageAlt="Cyclists walking bikes along a boardwalk near a lighthouse"
         ride={['Options: ~19–36 mi', 'Moderate hills', 'Trail / roads / parkway choices']}
         eat={['Dalvay dining on-site', "Richard's Seafood nearby", 'Reserve dinner if eating at Dalvay']}
         see={['PEI National Park', 'Gulf Shore Parkway', 'Beaches + dunes']}
@@ -265,8 +257,6 @@ export default function PEI() {
         slideNum="12"
         title="Day 8: Dalvay → St. Peters"
         subtitle="Saturday 8/29 — dunes, mussels, and bay views"
-        image="/pei/slide12_img06.jpg"
-        imageAlt="PEI lobster and mussels on a wooden table with ocean in the background"
         ride={['~25 mi / 40.3–50.5 km depending route', 'Relatively flat', 'Trail + quiet connectors']}
         eat={['21 Breakwater', 'Points East inn dinner available', 'Dairy bar / local cafés']}
         see={['Morell River', 'Greenwich dunes lookout', 'Artisans by the Bay / St. Peters']}
@@ -278,8 +268,6 @@ export default function PEI() {
         slideNum="13"
         title="Day 9: St. Peters → Elmira + Shuttle"
         subtitle="Sunday 8/30 — finish the tip-to-tip route"
-        image="/pei/slide13_img06.jpg"
-        imageAlt="Cyclists riding along a coastal road past a lighthouse on the final day"
         ride={['Option 1: ~27 mi / 43.5 km', 'Option 2: East Point extension ~40 mi', 'Moderately hilly']}
         eat={['Lunch/snacks before shuttle', 'Charlottetown dinner after return', 'Cows ice cream — Best ice cream in Canada']}
         see={['Elmira Railway Museum', 'East Point Lighthouse option', 'Basin Head / Singing Sands if extending']}
@@ -293,26 +281,6 @@ export default function PEI() {
           <p className="text-xs uppercase tracking-widest text-gray-400 mb-1">14</p>
           <h2 className="text-3xl font-bold text-gray-900 mb-2">Food & Drink: Priority Stops</h2>
           <p className="text-gray-600 mb-6">Integrated by day, but here is the quick hit list</p>
-          <div className="grid md:grid-cols-2 gap-4 mb-8">
-            <div className="rounded-xl overflow-hidden">
-              <Image
-                src="/pei/slide14_img06.jpg"
-                alt="Fresh PEI lobster and mussels with ocean views"
-                width={600}
-                height={400}
-                className="w-full h-auto rounded-xl"
-              />
-            </div>
-            <div className="rounded-xl overflow-hidden">
-              <Image
-                src="/pei/slide14_img07.jpg"
-                alt="Charlottetown Victoria Row outdoor patio dining scene"
-                width={600}
-                height={400}
-                className="w-full h-auto rounded-xl"
-              />
-            </div>
-          </div>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-red-50 border border-red-200 rounded-lg p-5">
               <h3 className="font-bold text-gray-900 mb-3">Charlottetown</h3>
@@ -357,15 +325,6 @@ export default function PEI() {
           <p className="text-xs uppercase tracking-widest text-gray-400 mb-1">15</p>
           <h2 className="text-3xl font-bold text-gray-900 mb-2">Optional Experiences & Open Decisions</h2>
           <p className="text-gray-600 mb-6">A few things to decide together</p>
-          <div className="rounded-xl overflow-hidden mb-8">
-            <Image
-              src="/pei/slide15_img06.jpg"
-              alt="Cyclists with bikes on a boardwalk at a PEI lighthouse"
-              width={960}
-              height={640}
-              className="w-full h-auto rounded-xl"
-            />
-          </div>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-green-50 border border-green-200 rounded-lg p-6">
               <h3 className="font-bold text-green-800 mb-3">Likely / Easy</h3>
@@ -398,15 +357,6 @@ export default function PEI() {
           <p className="text-xs uppercase tracking-widest text-gray-400 mb-1">16</p>
           <h2 className="text-3xl font-bold text-gray-900 mb-2">Packing: Keep It Practical</h2>
           <p className="text-gray-600 mb-6">Bike comfort, rain readiness, phone battery, and evening shoes</p>
-          <div className="rounded-xl overflow-hidden mb-8">
-            <Image
-              src="/pei/slide16_img06.jpg"
-              alt="Two cyclists riding along a road with a lighthouse and dunes"
-              width={960}
-              height={500}
-              className="w-full h-auto rounded-xl"
-            />
-          </div>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
               <h3 className="font-bold text-blue-900 mb-3">Bike Comfort</h3>
@@ -597,8 +547,8 @@ function DaySection({
   slideNum: string;
   title: string;
   subtitle: string;
-  image: string;
-  imageAlt: string;
+  image?: string;
+  imageAlt?: string;
   ride: string[];
   eat: string[];
   see: string[];
@@ -611,15 +561,17 @@ function DaySection({
         <p className="text-xs uppercase tracking-widest text-gray-400 mb-1">{slideNum}</p>
         <h2 className="text-2xl font-bold text-gray-900 mb-1">{title}</h2>
         <p className="text-gray-500 mb-4 text-sm">{subtitle}</p>
-        <div className="rounded-xl overflow-hidden mb-6">
-          <Image
-            src={image}
-            alt={imageAlt}
-            width={960}
-            height={480}
-            className="w-full h-auto rounded-xl"
-          />
-        </div>
+        {image && (
+          <div className="rounded-xl overflow-hidden mb-6">
+            <Image
+              src={image}
+              alt={imageAlt ?? ''}
+              width={960}
+              height={480}
+              className="w-full h-auto rounded-xl"
+            />
+          </div>
+        )}
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
           <div className="bg-white border border-gray-200 rounded-lg p-4">
             <p className="text-xs font-bold uppercase text-green-700 mb-2">Ride</p>
