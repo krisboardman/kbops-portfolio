@@ -176,7 +176,7 @@ export default function PEI() {
         subtitle="Friday arrival + Saturday free day before bike pickup"
         image="/pei/slide05_img06.jpg"
         imageAlt="Victoria Row outdoor patio dining in Charlottetown"
-        ride={['Free day Saturday', 'Optional test ride after pickup: 20.7 km — moderately hilly, primarily on roads', 'Southern coastal drive option']}
+        ride={['Free day Saturday', 'Optional test ride after pickup:', '↳ Option 1: 10.6 km loop — relaxed, mostly flat, mixed terrain with some off-road', '↳ Option 2: 20.7 km — moderately hilly, primarily on roads', 'Southern coastal drive option']}
         eat={['Sea Rocket Oyster House', 'Water Prince Corner Shop', 'Claddagh Oyster House', 'Point Prim Chowder House if driving', 'Sims Corner Steakhouse & Oyster Bar']}
         see={["Victoria Row / Reddin's Speakeasy — password", 'Point Prim Lighthouse', 'Wood Islands / Cape Bear / Panmure', 'Top Notch Lobster Excursion']}
         logistics={['Fri: arrive evening', 'Stay: The Arts Hotel', "Sat 4:15 pm: MacQueen's bike pickup", 'Pick up luggage tags', 'Breakfast not included']}
@@ -187,7 +187,7 @@ export default function PEI() {
         slideNum="06"
         title="Day 2: Shuttle to Tignish + North Cape"
         subtitle="Sunday 8/23 — get west, then optional warm-up ride"
-        ride={['Optional North Cape loop', '~17 mi / 27.8 km', 'Mostly roads, relatively flat']}
+        ride={['27.8 km circular loop — relatively flat, mixed terrain, mostly roads']}
         eat={["M.J.'s Bakery / Caboose Café", 'Local dinner in Tignish', 'Snack backup recommended']}
         see={['North Cape Wind Energy Centre', 'Tignish Cultural Centre', 'St. Simon & St. Jude Church']}
         logistics={['8:45 am: be ready', '9:00 am shuttle pickup', 'Stay: Tignish Heritage Inn', 'Breakfast not included']}
@@ -198,7 +198,7 @@ export default function PEI() {
         slideNum="07"
         title="Day 3: Tignish → Mill River"
         subtitle="Monday 8/24 — first point-to-point ride"
-        ride={['~29 mi / 47.1 km', 'Moderate hills', 'Mostly off-road / trail']}
+        ride={['47.1 km — moderately hilly, mostly off-road trail']}
         eat={['Valley Pearl Oysters if timing works', 'Mill River on-site options', 'Carry lunch/snacks']}
         see={['Alberton harbor', 'North Cape Coastal scenery', 'Quiet trail towns']}
         logistics={['Bags picked up ~9:00', 'Stay: Mill River Resort', 'Breakfast not included', 'Indoor pool / resort amenities']}
@@ -211,7 +211,7 @@ export default function PEI() {
         subtitle="Tuesday 8/25 — the longer western ride"
         image="/pei/slide08_img06.jpg"
         imageAlt="Fresh PEI lobster and mussels on a table with ocean views"
-        ride={['~40 mi / 64.3 km', 'Relatively flat', 'Mostly off-road / trail']}
+        ride={['64.3 km — relatively flat, mostly off-road trail']}
         eat={['Moth Lane Brewing', 'Prince County Guest House pub', 'Summerside taxi option if needed']}
         see={['Portage wetlands', 'Bideford / Acadian heritage', 'Richmond Dairy Bar idea', 'Bannock in the sand']}
         logistics={['Bags picked up ~9:00', 'Stay: Prince County Guest House', '$30 room pub voucher noted', 'Breakfast nearby / not included']}
@@ -222,7 +222,7 @@ export default function PEI() {
         slideNum="09"
         title="Day 5: Miscouche → New Glasgow"
         subtitle="Wednesday 8/26 — central PEI and lobster country"
-        ride={['~38 mi / 61.3 km', 'Moderate hills', 'Trail + rolling finish']}
+        ride={['61.3 km — moderately hilly, mostly off-road trail']}
         eat={['New Glasgow Lobster Suppers', 'The Table — WAITLIST', 'Blue Mussel Cafe', 'Evermoore Brewing (Summerside)', 'Moth Lane Brewing (Summerside)']}
         see={['Summerside area', 'Kensington Railway Station', 'Hunter River / rolling farmland']}
         logistics={['Bags picked up ~9:00', 'Stay: New Glasgow Inn', '2 nights here', 'Breakfast included']}
@@ -235,7 +235,7 @@ export default function PEI() {
         subtitle="Thursday 8/27 — lighter ride, big food/see day"
         image="/pei/slide10_img06.jpg"
         imageAlt="Fresh oysters on the half shell on ice"
-        ride={['~22 mi / 34.7 km loop', 'Moderate hills', 'Mostly roads']}
+        ride={['34.5 km circular loop — moderately hilly, mostly roads']}
         eat={['Blue Mussel Café — join waitlist en route', 'Lone Oak Beer Garden', 'New Glasgow Lobster Suppers backup']}
         see={['Green Gables Heritage Place', 'PEI National Park shoreline', 'Cavendish / North Rustico']}
         logistics={['Stay: New Glasgow Inn', 'Second night', 'Breakfast included', 'Good day for flexible plans']}
@@ -246,7 +246,7 @@ export default function PEI() {
         slideNum="11"
         title="Day 7: New Glasgow → Dalvay"
         subtitle="Friday 8/28 — choose the scenic route"
-        ride={['Options: ~19–36 mi', 'Moderate hills', 'Trail / roads / parkway choices']}
+        ride={['↳ Option 1: 57.9 km — road + Confederation Trail + secondary road + parkway, mostly off-road', '↳ Option 2: 31.0 km — north shore route via Gulf Shore Parkway (PEI National Park), mostly on roads', '↳ Option 3: 54.1 km — road + Confederation Trail + scenic byway, mostly off-road']}
         eat={['Dalvay dining on-site', "Richard's Seafood nearby", 'Reserve dinner if eating at Dalvay']}
         see={['PEI National Park', 'Gulf Shore Parkway', 'Beaches + dunes']}
         logistics={['Bags ready by 8:30', 'Stay: Dalvay by the Sea', 'Breakfast not included', 'Dinner reservation recommended']}
@@ -257,7 +257,7 @@ export default function PEI() {
         slideNum="12"
         title="Day 8: Dalvay → St. Peters"
         subtitle="Saturday 8/29 — dunes, mussels, and bay views"
-        ride={['~25 mi / 40.3–50.5 km depending route', 'Relatively flat', 'Trail + quiet connectors']}
+        ride={['↳ Option 1: 49.1 km — Donaldston Rd & Confederation Trail, relatively flat, mixed terrain', '↳ Option 2: 50.5 km — Route 6 & Confederation Trail (Island Walk), mostly off-road']}
         eat={['21 Breakwater', 'Points East inn dinner available', 'Dairy bar / local cafés']}
         see={['Morell River', 'Greenwich dunes lookout', 'Artisans by the Bay / St. Peters']}
         logistics={['Bags ready by 8:30', 'Stay: Points East Coastal Inn', 'Breakfast included', 'Packed lunches available']}
@@ -268,7 +268,7 @@ export default function PEI() {
         slideNum="13"
         title="Day 9: St. Peters → Elmira + Shuttle"
         subtitle="Sunday 8/30 — finish the tip-to-tip route"
-        ride={['Option 1: ~27 mi / 43.5 km', 'Option 2: East Point extension ~40 mi', 'Moderately hilly']}
+        ride={['↳ Option 1: 43.5 km to Elmira — moderately hilly, off-road', '↳ Option 2: 64.1 km via East Point & back to Elmira — moderately hilly, partly off-road']}
         eat={['Lunch/snacks before shuttle', 'Charlottetown dinner after return', 'Cows ice cream — Best ice cream in Canada']}
         see={['Elmira Railway Museum', 'East Point Lighthouse option', 'Basin Head / Singing Sands if extending']}
         logistics={['3:00 pm shuttle from Elmira', 'Return via St. Peters luggage pickup', 'Drop-off ~4:15 Charlottetown', 'Stay: The Arts Hotel']}
