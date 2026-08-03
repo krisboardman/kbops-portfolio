@@ -227,6 +227,7 @@ export default function PEI() {
         see={['Summerside area', 'Kensington Railway Station', 'Hunter River / rolling farmland']}
         logistics={['Bags picked up ~9:00', 'Stay: New Glasgow Inn', '2 nights here', 'Breakfast included']}
         bg="bg-gray-50"
+        featureLink={{ href: '/pei/anne', label: 'Green Gables guide', note: 'Tomorrow morning: Green Gables Heritage Place — plan for a 9:00 AM start' }}
       />
 
       <DaySection
@@ -240,6 +241,7 @@ export default function PEI() {
         see={['Green Gables Heritage Place', 'PEI National Park shoreline', 'Cavendish / North Rustico']}
         logistics={['Stay: New Glasgow Inn', 'Second night', 'Breakfast included', 'Good day for flexible plans']}
         bg="bg-white"
+        featureLink={{ href: '/pei/anne', label: 'Full Green Gables guide', note: 'Green Gables Heritage Place — arrive by 9:00 AM, plan ~2–3 hours' }}
       />
 
       <DaySection
@@ -548,6 +550,7 @@ function DaySection({
   see,
   logistics,
   bg,
+  featureLink,
 }: {
   slideNum: string;
   title: string;
@@ -559,6 +562,7 @@ function DaySection({
   see: string[];
   logistics: string[];
   bg: string;
+  featureLink?: { href: string; label: string; note: string };
 }) {
   return (
     <section className={`py-12 px-4 ${bg}`}>
@@ -603,6 +607,12 @@ function DaySection({
             </ul>
           </div>
         </div>
+        {featureLink && (
+          <a href={featureLink.href} className="mt-4 flex items-center justify-between gap-4 bg-green-50 border border-green-200 rounded-lg px-5 py-3 hover:bg-green-100 transition group">
+            <span className="text-sm text-gray-600 italic">{featureLink.note}</span>
+            <span className="text-sm font-semibold text-green-800 group-hover:underline shrink-0">{featureLink.label} →</span>
+          </a>
+        )}
       </div>
     </section>
   );
