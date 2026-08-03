@@ -176,7 +176,7 @@ export default function PEI() {
         subtitle="Friday arrival + Saturday free day before bike pickup"
         image="/pei/slide05_img06.jpg"
         imageAlt="Victoria Row outdoor patio dining in Charlottetown"
-        ride={['Free day Saturday', 'Optional test ride after pickup:', '↳ Option 1: 10.6 km loop — relaxed, mostly flat, mixed terrain with some off-road', '↳ Option 2: 20.7 km route — moderately hilly, primarily on roads', 'Southern coastal drive option']}
+        ride={['Free day Saturday', 'Optional test ride after pickup: 20.7 km — moderately hilly, primarily on roads', 'Southern coastal drive option']}
         eat={['Sea Rocket Oyster House', 'Water Prince Corner Shop', 'Claddagh Oyster House', 'Point Prim Chowder House if driving', 'Sims Corner Steakhouse & Oyster Bar']}
         see={["Victoria Row / Reddin's Speakeasy — password", 'Point Prim Lighthouse', 'Wood Islands / Cape Bear / Panmure', 'Top Notch Lobster Excursion']}
         logistics={['Fri: arrive evening', 'Stay: The Arts Hotel', "Sat 4:15 pm: MacQueen's bike pickup", 'Pick up luggage tags', 'Breakfast not included']}
